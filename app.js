@@ -36,9 +36,20 @@ import { getAuth, signInWithPopup, GoogleAuthProvider , signOut,onAuthStateChang
   const provider = new GoogleAuthProvider()
 
   const signInButton = document.getElementById("signInButton");
+  const signInButtonu = document.getElementById("signInButtonu");
   
   
   const userSignIn = async() => {
+    signInWithPopup(auth, provider)
+    .then((result) => {
+        const user = result.user
+        console.log(user);
+    }).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message
+    })
+  }
+  const userSignInu = async() => {
     signInWithPopup(auth, provider)
     .then((result) => {
         const user = result.user
@@ -55,6 +66,13 @@ import { getAuth, signInWithPopup, GoogleAuthProvider , signOut,onAuthStateChang
 //     }).catch((error) => {})
 //   }
 
-  signInButton.addEventListener('click', userSignIn);
+signInButton.addEventListener('click', userSignIn);
+signInButtonu.addEventListener('click', userSignInu);
+// Initialization for ES Users
+import { Input, Ripple, initMDB } from "mdb-ui-kit";
+
+initMDB({ Input, Ripple });
+import { SomeComponent } from 'mdb-ui-kit';
+
 
 

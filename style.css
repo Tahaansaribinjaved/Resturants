@@ -1,20 +1,43 @@
-@font-face {
+.div1{
+    display: flex;
+    justify-content: center;
+}
+  
+  @media only screen and (max-width: 768px) {
+    .div1{
+        display: block;
+    }
+    .index_asauser_content {
+        width: 60vw !important;
+    }
+
+  }
+  @font-face {
     font-family: taha;
     src: url('./Kalnia/static/Kalnia_Expanded-Regular.ttf')
 }
+body{
+    background-image: url('https://cdn.vox-cdn.com/thumbor/A8cN_OAqyh1UHHt1bZDnj024amI=/0x0:6751x4826/1200x900/filters:focal(2836x1873:3916x2953)/cdn.vox-cdn.com/uploads/chorus_image/image/55657325/Tambourine_Room_by_Tristan_Brandt_Dining_Room_1_Photo_Credit_Michael_Pisarri.143.jpg');
+    height: 100vh;
 
-nav {
+}
+  
+  nav {
     font-family: taha;
 }
 
 .index_asauser_content {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #3b72ca7c;
+    background-color: rgba(0, 0, 0, 0.589);
     padding: 2vh;
-    width: 60vw;
-    border: 2px solid #0062ff;
+    width: 30vw;
+    border: 2px solid white;
     display: flex;
+    
     align-items: center;
     margin: 8vh;
     border-radius: 25px;
+}
+.back{
+    /* height: 100vh; */
 }
