@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign up</title>
+    <title>Sign in</title>
     <!-- <link rel="stylesheet" href="style.css"> -->
  
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
@@ -16,24 +16,20 @@
 
 <body>
     <div class="m-3">
-        <h1 class="text-center">Admin sign up</h1>
+        <h1 class="text-center">user sign in</h1>
 
         <form>
             
-            <div data-mdb-input-init class="form-outline mb-4">
-                <input type="text" id="admin-signup-company" id="form6Example3" class="form-control" />
-                <label class="form-label" for="form6Example3">Company name</label>
-            </div>
-
+      
             
             <div data-mdb-input-init class="form-outline mb-4">
-                <input type="email" id="admin-signup-email" class="form-control" />
+                <input type="email" id="user-signin-email" class="form-control" />
                 <label class="form-label" for="form6Example5">Email</label>
             </div>
 
          
             <div data-mdb-input-init class="form-outline mb-4">
-                <input type="password" id="admin-signup-password" id="form6Example6" class="form-control" />
+                <input type="password" id="user-signin-password" id="form6Example6" class="form-control" />
                 <label class="form-label" for="form6Example6">Password</label>
             </div>
 
@@ -42,17 +38,18 @@
        
             <div class="form-check d-flex justify-content-center  mb-4">
              
-                <label class="form-check-label" for="form6Example8">Already have an account? </label>
-                <a href="./adminsignin.html">Pleace sign in</a>
+                <label class="form-check-label" for="form6Example8">I do not have an account </label>
+                <a href="./usersignup.html">Pleace sign up</a>
             </div>
 
    
-            <button id="admin-signup-btn" data-mdb-ripple-init type="button"
+            <button id="user-signin-btn" data-mdb-ripple-init type="button"
                 class="btn btn-primary btn-block mb-4">Submit</button>
         </form>
 
     </div>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script type="module" src="app.js"></script>
  
