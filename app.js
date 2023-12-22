@@ -43,7 +43,7 @@ const firebaseConfig = {
     messagingSenderId: "229070023933",
     appId: "1:229070023933:web:1d57cc378454a25f9e2294",
     measurementId: "G-KWTBC3Z6T6"
-  };
+};
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -59,7 +59,7 @@ const userSignIn = async (button) => {
         console.log(user);
         location.href = './adminindex.html';
 
-        
+
     } catch (error) {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -79,19 +79,33 @@ const userSignInu = async () => {
         console.error(errorCode, errorMessage);
     }
 };
+let adminSignOutBtn = document.querySelector('#admin-signout-btn');
 
-// const userSignOut = async () => {
-//     try {
-//         await signOut(auth);
-//         alert("You have signed out successfully!");
-//     } catch (error) {
-//         console.error(error);
-//     }
-// };
-if(signInButton){
+
+if(adminSignOutBtn){
+
+    adminSignOutBtn.addEventListener('click', () => {
+        console.log('taha');
+        signOut(auth).then(() => {
+            console.log('logout succesfully');
+            window.location = 'index.html'
+        }).catch((error) => {
+            console.log(error);
+        });
+    })
+}
+
+
+
+
+
+
+
+
+if (signInButton) {
 
     signInButton.addEventListener('click', userSignIn);
-}if(signInButtonu){
+} if (signInButtonu) {
 
     signInButtonu.addEventListener('click', userSignInu);
 }
@@ -127,7 +141,7 @@ if (user_index_signin_btn) {
 
 //        authentication
 
-import {  createUserWithEmailAndPassword,signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 
 // Signed up
 let btn = document.querySelector('#admin-signup-btn');
@@ -137,7 +151,7 @@ if (btn) {
         let password = document.querySelector('#admin-signup-password').value;
         let companyName = document.querySelector('#admin-signup-company').value;
 
-        if (email == ""&& password == ""&& companyName=="") {
+        if (email == "" && password == "" && companyName == "") {
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
@@ -146,9 +160,9 @@ if (btn) {
             });
 
         } else {
-            
+
             try {
-                ubtn.innerHTML = `<button class="btn btn-primary" type="button" disabled>
+                btn.innerHTML = `<button class="btn btn-primary" type="button" disabled>
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 Loading...
                 </button>`
@@ -165,8 +179,8 @@ if (btn) {
                 });
                 const docRef = await addDoc(collection(db, "admins"), {
                     email: email,
-                    company :companyName,
-                    uid:user.uid
+                    company: companyName,
+                    uid: user.uid
                     // Avoid storing passwords in plain text, consider alternative approaches
                     // password: password
                 });
@@ -194,7 +208,7 @@ if (btn1) {
         let email = document.querySelector('#admin-signin-email').value;
         let password = document.querySelector('#admin-signin-password').value;
         let company = document.querySelector('#admin-signin-company').value;
-        if (email == "" && password == ""&&company=="" ) {
+        if (email == "" && password == "" && company == "") {
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
@@ -205,8 +219,8 @@ if (btn1) {
         } else {
 
             signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
+                .then((userCredential) => {
+                    const user = userCredential.user;
                     btn1.innerHTML = `<button class="btn btn-primary" type="button" disabled>
                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                     Loading...
@@ -218,7 +232,7 @@ if (btn1) {
                             icon: "success"
                         });
 
-                        
+
                     }, 4500)
                     setTimeout(() => {
                         location.href = './adminindex.html';
@@ -234,8 +248,8 @@ if (btn1) {
                         text: "This Email and password are not registered",
                         footer: '<a href="./index.html">Please sign up</a>'
                     });
-                    location.href= './adminsignup.html'
-                    
+                    location.href = './adminsignup.html'
+
                 });
         }
     });
@@ -249,7 +263,7 @@ if (ubtn) {
         let email = document.querySelector('#user-signup-email').value;
         let password = document.querySelector('#user-signup-password').value;
 
-        if (email == ""&& password == "") {
+        if (email == "" && password == "") {
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
@@ -258,7 +272,7 @@ if (ubtn) {
             });
 
         } else {
-            
+
             try {
                 ubtn.innerHTML = `<button class="btn btn-primary" type="button" disabled>
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
@@ -277,8 +291,8 @@ if (ubtn) {
                 });
                 const docRef = await addDoc(collection(db, "users"), {
                     email: email,
-                    
-                    uid:user.uid
+
+                    uid: user.uid
                     // Avoid storing passwords in plain text, consider alternative approaches
                     // password: password
                 });
@@ -305,7 +319,7 @@ if (ubtn1) {
     ubtn1.addEventListener('click', () => {
         let email = document.querySelector('#user-signin-email').value;
         let password = document.querySelector('#user-signin-password').value;
-        if (email == "" && password == "" ) {
+        if (email == "" && password == "") {
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
@@ -316,8 +330,8 @@ if (ubtn1) {
         } else {
 
             signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
+                .then((userCredential) => {
+                    const user = userCredential.user;
                     btn1.innerHTML = `<button class="btn btn-primary" type="button" disabled>
                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                     Loading...
@@ -329,7 +343,7 @@ if (ubtn1) {
                             icon: "success"
                         });
 
-                        
+
                     }, 4500)
                     setTimeout(() => {
                         location.href = './userindex.html';
@@ -345,11 +359,49 @@ if (ubtn1) {
                         text: "This Email and password are not registered",
                         footer: '<a href="./index.html">Please sign up</a>'
                     });
-                    location.href= './userindex.html'
-                    
+                    location.href = './usersignup.html'
+
                 });
         }
     });
 }
 
+//      admin add item 
 
+let addItem = document.querySelector('#addItem');
+let showItem = document.querySelector('#showItem');
+
+if (showItem) {
+    addItem.addEventListener('click', async (event) => {
+        event.preventDefault(); // Prevent form submission
+        
+        // let todo = document.querySelector('#todo');
+        
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        });
+        
+        Toast.fire({
+            icon: "success",
+            title: "Creation  successfully"
+        });
+        
+        const docRef = await addDoc(collection(db, "todos"), {
+            todo: todo.value,
+            time: new Date().toLocaleString()
+            
+        });
+        console.log("Document written with ID: ", docRef.id);
+        
+        todo.value = ""
+    });
+
+}

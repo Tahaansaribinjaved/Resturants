@@ -4,8 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet" />
 </head>
 <body>
     <h1>wellcome</h1>
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#exampleModal">
+    Add Item
+  </button>
+  <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="adminModalLabel">Add Item</h5>
+                <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3 text-center">
+                    <input type="text" placeholder="Item title" name="" id="getItemTitle"><br><br>
+                    <input type="number" placeholder="Item Amount" name="" id="getItemAmount"><br><br>
+                    <textarea name=""  placeholder="Item Description" id="getItemDescription" cols="20" rows="5"></textarea>
+
+
+
+
+
+
+
+                    <br><br>
+                    <button type="button" class="btn btn-secondary"  data-mdb-ripple-init data-mdb-dismiss="modal"
+                    aria-label="Close">Close</button>
+            
+                    <button id="addItem" class="btn btn-primary" >Add Item  </button>
+
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<button id="admin-signout-btn">signout</button>
+<div id="showItem"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- MDB -->
+ <script type="module"
+ src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script> 
+
+
+    <script type="module" src="app.js"></script>
 </body>
 </html>
